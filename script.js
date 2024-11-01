@@ -20,3 +20,13 @@ module.exports.calculator = {
     multiply: (x, y) => x * y,
     divide: (x, y) => x / y
 }
+
+module.exports.analyzeArray = function(array) {
+    let arrayData = {
+        average: array.reduce((previous, current)  => (previous + current))/array.length,
+        min: Math.min(...array),
+        max: Math.max(...array),
+        length: array.length
+    }
+    return arrayData
+}
