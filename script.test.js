@@ -2,6 +2,7 @@ const {
     capitalize,
     reverseString,
     calculator,
+    caesarCipher,
     analyzeArray,
 } = require('./script');
 
@@ -12,22 +13,34 @@ test('capitalizes first character of a string', () => {
 })
 
 test('reverses a string', () => {
-    expect(reverseString('flamingo')).toBe('ognimalf')
-    expect(reverseString('10Love')).toBe('evoL01')
+    expect(reverseString('flamingo')).toBe('ognimalf');
+    expect(reverseString('10Love')).toBe('evoL01');
 })
 
 describe('calculator', () => {
     it('adds two numbers', () => {
-        expect(calculator.add(45, 15)).toEqual(60)
+        expect(calculator.add(45, 15)).toEqual(60);
     })
     it('subtracts two numbers', () => {
-        expect(calculator.subtract(45, 15)).toEqual(30)
+        expect(calculator.subtract(45, 15)).toEqual(30);
     })
     it('multiplys two numbers', () => {
-        expect(calculator.multiply(5, 9)).toEqual(45)
+        expect(calculator.multiply(5, 9)).toEqual(45);
     })
     it('divides two numbers', () => {
-        expect(calculator.divide(45, 15)).toEqual(3)
+        expect(calculator.divide(45, 15)).toEqual(3);
+    })
+})
+
+describe('Caesar Cipher', () => {
+    it('wrapping', () => {
+        expect(caesarCipher('xyz', 3)).toBe('abc');
+    })
+    it('case preservation', () => {
+        expect(caesarCipher('HeLLo', 3)).toBe('KhOOr')
+    })
+    it('punctuation', () => {
+        expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!')
     })
 })
 
