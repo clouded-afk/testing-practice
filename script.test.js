@@ -2,6 +2,7 @@ const {
     capitalize,
     reverseString,
     calculator,
+    analyzeArray,
 } = require('./script');
 
 test('capitalizes first character of a string', () => {
@@ -28,4 +29,13 @@ describe('calculator', () => {
     it('divides two numbers', () => {
         expect(calculator.divide(45, 15)).toEqual(3)
     })
+})
+
+test('average, min, max, and length of an array', () => {
+    expect(JSON.stringify(analyzeArray([1,8,3,4,2,6]))).toBe(JSON.stringify({
+        average: 4,
+        min: 1,
+        max: 8,
+        length: 6
+    }))
 })
