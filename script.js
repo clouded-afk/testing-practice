@@ -21,6 +21,30 @@ module.exports.calculator = {
     divide: (x, y) => x / y
 }
 
+module.exports.caesarCipher = function(string, shiftFactor) {
+    let cipher = '';
+
+    for (let i = 0; i < string.length; i++) {
+        let charCode = string.charCodeAt(i);
+        let shiftedCharCode = charCode + shiftFactor;
+        
+        if (charCode >= 97 && charCode <= 122) {
+            if (shiftedCharCode > 122) {
+                shiftedCharCode -= 26;
+            }
+            cipher += String.fromCharCode(shiftedCharCode);
+        } else if (charCode >= 65 && charCode <= 90) {
+            if (shiftedCharCode > 90) {
+                shiftedCharCode -= 26;
+            }
+            cipher += String.fromCharCode(shiftedCharCode);
+        } else {
+            cipher += string[i];
+        }
+    }
+    return cipher;
+}
+
 module.exports.analyzeArray = function(array) {
     let arrayData = {
         average: array.reduce((previous, current)  => (previous + current))/array.length,
